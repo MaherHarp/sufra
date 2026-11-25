@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f6efe2;
+  --linen: #efe4cf;
+  --olive: #5b6b2f;
+  --olive-deep: #3b4620;
+  --terra: #b5532e;
+  --walnut: #4a3222;
+  --wood: #c89b6d;
+  /* An eight-pointed star (khatam) tile, drawn in thin olive lines. */
+  --khatam: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%235B6B2F' stroke-width='1'%3E%3Crect x='16' y='16' width='24' height='24'/%3E%3Crect x='16' y='16' width='24' height='24' transform='rotate(45 28 28)'/%3E%3Cpath d='M0 0l11 11M56 0L45 11M0 56l11-11M56 56L45 45M28 0v4M28 56v-4M0 28h4M56 28h-4'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--walnut);
+  font-feature-settings: "kern", "liga", "onum";
+}
+
+::selection {
+  background: #e3e6cf;
+  color: var(--olive-deep);
+}
+
+:focus-visible {
+  outline: 3px solid var(--terra);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@layer components {
+  .khatam {
+    background-image: var(--khatam);
+    background-size: 56px 56px;
+  }
+  .khatam-faint {
+    position: relative;
+  }
+  .khatam-faint::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--khatam);
+    background-size: 56px 56px;
+    opacity: 0.14;
+    pointer-events: none;
+  }
+  /* The arch: a Levantine doorway shape used for hero imagery. */
+  .arch {
+    border-radius: 999px 999px 1rem 1rem;
+    overflow: hidden;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[0.95rem] font-semibold transition-colors disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-olive text-paper hover:bg-olive-deep;
+  }
+  .btn-quiet {
+    @apply btn border border-walnut/25 bg-paper text-walnut hover:border-olive hover:text-olive-deep;
+  }
+  .btn-terra {
+    @apply btn bg-terra text-paper hover:bg-[#9a4425];
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-walnut/20 px-3 py-1.5 text-sm font-medium transition-colors;
+  }
+  .chip[aria-pressed="true"] {
+    @apply border-olive bg-olive text-paper;
+  }
+  .h-display {
+    @apply font-display leading-[1.05] tracking-[-0.01em] text-walnut;
+  }
+  .rule-dots {
+    background-image: radial-gradient(circle, rgba(74, 50, 34, 0.35) 1px, transparent 1.2px);
+    background-size: 8px 8px;
+    background-repeat: repeat-x;
+    background-position: center;
+    height: 8px;
+  }
+  .prose-body p + p {
+    @apply mt-3;
+  }
+}
+
+@media (max-width: 1023px) {
+  body.has-cookbar .timer-dock {
+    bottom: 5.25rem;
+  }
+}
+
+/* -------- Print --------
+   Recipe pages mount a clean .print-sheet straight into <body>; when it exists,
+   printing shows only that sheet. data-print="ingredients" drops the steps. */
+.print-sheet {
+  display: none;
+}
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  body:has(> .print-sheet) > *:not(.print-sheet),
+  body[data-print] > *:not(.print-sheet) {
+    display: none !important;
+  }
+  .print-sheet {
+    display: block !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+  body[data-print="ingredients"] .print-steps,
+  body[data-print="ingredients"] .print-notes {
+    display: none !important;
+  }
+  .print-sheet li,
+  .print-sheet section {
+    break-inside: avoid;
+  }
+  /* Pages without a print sheet (e.g. the shopping list) drop the site chrome. */
+  header,
+  footer,
+  iframe {
+    display: none !important;
+  }
+}

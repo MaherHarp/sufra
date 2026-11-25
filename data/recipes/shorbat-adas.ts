@@ -1,0 +1,132 @@
+import type { Recipe } from "../types";
+import { u } from "../images";
+
+export const shorbatAdas: Recipe = {
+  slug: "shorbat-adas",
+  title: "Shorbat Adas (Lebanese Lentil Soup)",
+  arabic: "شوربة عدس",
+  category: "soups",
+  summary: "A silky, golden red lentil soup with cumin and a big squeeze of lemon.",
+  description:
+    "This is the soup Lebanese families make on cold nights and the one that breaks the fast during Ramadan. It uses cheap pantry staples, needs no special skills, and goes from chopping board to bowl in under an hour. The lemon at the end is not optional — it wakes the whole soup up.",
+  origin:
+    "Lentils have been grown in the Levant for thousands of years, and red lentil soup is eaten across the region. The Lebanese version is blended smooth, scented with cumin and always served with lemon wedges and often with crisp fried bread.",
+  image: { src: u("photo-1781332152758-8cb1d61f2192"), alt: "A bowl of vibrant orange soup garnished with fresh herbs" },
+  prepMinutes: 15,
+  cookMinutes: 40,
+  waitMinutes: 0,
+  servings: 6,
+  difficulty: "Easy",
+  calories: 280,
+  dietary: ["Vegetarian", "Vegan", "Gluten-Free", "Dairy-Free", "Halal"],
+  rating: 4.9,
+  popularity: 12,
+  featured: true,
+  equipment: ["fine-sieve", "chef-knife", "cutting-board", "heavy-pot", "immersion-blender", "measuring"],
+  ingredients: [
+    {
+      title: "For the soup",
+      items: [
+        { id: "lentils", name: "split red lentils", qty: 1.5, unit: "cup", metric: { qty: 300, unit: "g" }, aisle: "Pantry" },
+        { id: "oil", name: "olive oil", qty: 3, unit: "tbsp", metric: { qty: 45, unit: "ml" }, aisle: "Pantry" },
+        { id: "onion", name: "yellow onion", qty: 1, unit: "", metric: { qty: 200, unit: "g" }, note: "large, diced", aisle: "Produce" },
+        { id: "carrot", name: "carrot", qty: 1, unit: "", metric: { qty: 100, unit: "g" }, note: "medium, diced", aisle: "Produce" },
+        { id: "garlic", name: "garlic", qty: 3, unit: "clove", metric: { qty: 15, unit: "g" }, note: "chopped", aisle: "Produce" },
+        { id: "cumin", name: "ground cumin", qty: 1.5, unit: "tsp", metric: { qty: 3, unit: "g" }, aisle: "Spices" },
+        { id: "turmeric", name: "ground turmeric", qty: 0.5, unit: "tsp", metric: { qty: 1, unit: "g" }, aisle: "Spices", optional: true },
+        { id: "water", name: "water or vegetable stock", qty: 8, unit: "cup", metric: { qty: 2, unit: "l" }, aisle: "Pantry" },
+        { id: "salt", name: "fine sea salt", qty: 1.5, unit: "tsp", metric: { qty: 9, unit: "g" }, aisle: "Spices" },
+        { id: "pepper", name: "black pepper", qty: 0.5, unit: "tsp", metric: { qty: 1, unit: "g" }, aisle: "Spices" },
+      ],
+    },
+    {
+      title: "For serving",
+      items: [
+        { id: "lemons", name: "lemons, cut into wedges", qty: 2, unit: "", aisle: "Produce" },
+        { id: "croutons", name: "pita, cut into squares and toasted or fried", qty: 1, unit: "", aisle: "Bakery", optional: true },
+        { id: "parsley", name: "flat-leaf parsley", qty: 2, unit: "tbsp", metric: { qty: 8, unit: "g" }, note: "chopped", aisle: "Produce", optional: true },
+      ],
+    },
+  ],
+  steps: [
+    {
+      title: "Rinse the lentils",
+      minutes: 3,
+      uses: [{ id: "lentils" }],
+      body: ["Put the lentils in a fine sieve and rinse under cold running water, rubbing them with your fingers, until the water runs mostly clear. Pick out any small stones."],
+      cue: "Bright orange lentils and water running nearly clear underneath.",
+      tip: "Rinsing removes dusty starch, which means less foam and a cleaner taste.",
+      mistake: "Using whole brown or green lentils. They do not break down into a silky soup the same way.",
+      image: { src: u("photo-1763368392508-3d4bddfdd20a"), alt: "A pile of small lentils" },
+    },
+    {
+      title: "Soften the onion slowly",
+      minutes: 10,
+      timer: { label: "Soften onion", seconds: 9 * 60 },
+      uses: [{ id: "oil" }, { id: "onion" }],
+      body: ["Warm the olive oil in a large heavy pot over medium heat. Add the onion and cook, stirring every minute or so, for 8–10 minutes."],
+      cue: "The onion is soft, translucent and light golden at the edges, and smells sweet rather than sharp.",
+      tip: "This is where the soup's flavour comes from. Do not rush it.",
+      mistake: "Cranking the heat. Burnt onion makes the whole pot taste bitter.",
+    },
+    {
+      title: "Add the carrot, garlic and spices",
+      minutes: 3,
+      uses: [{ id: "carrot" }, { id: "garlic" }, { id: "cumin" }, { id: "turmeric" }],
+      body: ["Add the carrot and garlic and cook for 2 minutes. Sprinkle in the cumin and turmeric and stir for 30 seconds."],
+      cue: "The spices smell toasty and fragrant, and everything is coated in a golden film of oil.",
+      tip: "Blooming spices in oil makes them taste deeper and rounder than adding them to water.",
+      mistake: "Leaving the spices too long. Cumin burns quickly — add the lentils and water right away.",
+    },
+    {
+      title: "Simmer the lentils",
+      minutes: 30,
+      timer: { label: "Simmer soup", seconds: 25 * 60 },
+      uses: [{ id: "lentils" }, { id: "water" }, { id: "salt" }, { id: "pepper" }],
+      body: [
+        "Add the lentils, water or stock, salt and pepper. Bring to a boil, then lower the heat so it bubbles gently.",
+        "Skim off any foam with a spoon. Partly cover and simmer for 25–30 minutes, stirring now and then so nothing sticks to the bottom.",
+      ],
+      cue: "The lentils have completely collapsed into a thick, yellow-orange mush and the carrot is very soft.",
+      tip: "Stir along the bottom of the pot every 5–10 minutes. Red lentils love to stick.",
+      mistake: "Leaving it to boil hard. It foams over and sticks.",
+    },
+    {
+      title: "Blend until silky",
+      minutes: 4,
+      body: [
+        "Turn off the heat. Blend the soup with an immersion blender until completely smooth.",
+        "Using a regular blender? Let it cool for 10 minutes, fill the jug no more than half full, hold the lid down with a towel and blend in batches.",
+      ],
+      cue: "Velvety, smooth and golden, like a thick cream soup.",
+      tip: "If it is too thick, add hot water a little at a time. It thickens as it stands.",
+      mistake: "Blending boiling soup in a sealed blender. The steam can blow the lid off.",
+    },
+    {
+      title: "Season and serve with lemon",
+      minutes: 3,
+      uses: [{ id: "lemons" }, { id: "croutons" }, { id: "parsley" }],
+      body: [
+        "Taste and add more salt if needed. Ladle into bowls and top with crisp pita croutons, a drizzle of olive oil, a pinch of cumin and parsley.",
+        "Serve with lemon wedges and squeeze one into each bowl before eating.",
+      ],
+      cue: "Bright and earthy, with the lemon lifting every spoonful.",
+      tip: "For croutons, toss pita squares with olive oil and bake at 375°F (190°C) for 8–10 minutes until crisp.",
+      mistake: "Forgetting the lemon. Without it, the soup tastes flat.",
+    },
+  ],
+  video: { youtubeId: "BNuSOvecJZ4", creator: "TalkingSpices", title: "Lebanese Lentil Soup (Red Lentils)" },
+  videoSummary:
+    "We rinse split red lentils well, then slowly soften a diced onion in olive oil until sweet and golden. Carrot and garlic go in next, followed by cumin, which we bloom briefly in the oil. Then the lentils and water go in and simmer for about half an hour until they collapse completely. We blend the soup until silky, season it, and serve it the Lebanese way with crisp pita, olive oil and plenty of lemon to squeeze over.",
+  notes: {
+    substitutions: [
+      "Add a small diced potato with the carrot for an even creamier soup.",
+      "Use chicken stock instead of water for a richer soup (no longer vegetarian).",
+      "No immersion blender? Mash with a potato masher for a rustic texture, or use a regular blender carefully.",
+    ],
+    storage: "Keeps 5 days in the fridge and freezes for 3 months. It thickens as it cools; add water when reheating.",
+    makeAhead: "Make the whole soup up to 3 days ahead. Make the croutons fresh or store them airtight for up to a week.",
+    serving: "Serve as a starter with lemon and croutons, or as a light dinner with fattoush and manakish.",
+    pairsWith: ["fattoush", "zaatar-manakish", "labneh"],
+  },
+};

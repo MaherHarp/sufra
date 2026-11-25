@@ -1,0 +1,172 @@
+import type { Recipe } from "../types";
+import { u } from "../images";
+
+export const baklava: Recipe = {
+  slug: "baklava",
+  title: "Baklava",
+  arabic: "بقلاوة",
+  category: "desserts",
+  summary: "Crisp, buttery layers of phyllo and nuts, soaked in an orange-blossom syrup — the Lebanese way, with no honey.",
+  description:
+    "Lebanese baklava (baklawa) is lighter and more fragrant than the honey-soaked versions you may know. It uses clarified butter for crisp layers and a cool sugar syrup scented with orange blossom water. Phyllo looks intimidating, but this lesson shows you how to keep it from drying out and tearing.",
+  origin:
+    "Layered nut pastries like baklava were refined in the kitchens of the Ottoman palace and spread across the empire. In Lebanon, baklawa is sold in famous sweet shops in Tripoli and Beirut, made with pistachios or cashews and finished with 'ater, a simple syrup perfumed with orange blossom or rose water.",
+  image: { src: u("photo-1761828122856-8703baac8e86"), alt: "Golden baklava pastries filled with chopped pistachios" },
+  prepMinutes: 45,
+  cookMinutes: 55,
+  waitMinutes: 240,
+  waitLabel: "Cooling and soaking",
+  servings: 30,
+  servingsLabel: "pieces",
+  difficulty: "Advanced",
+  calories: 230,
+  dietary: ["Vegetarian"],
+  rating: 4.8,
+  popularity: 14,
+  equipment: ["saucepan", "food-processor", "baking-pan", "pastry-brush", "chef-knife", "kitchen-towels", "measuring"],
+  ingredients: [
+    {
+      title: "For the syrup ('ater)",
+      items: [
+        { id: "sugar", name: "granulated sugar", qty: 1.5, unit: "cup", metric: { qty: 300, unit: "g" }, aisle: "Pantry" },
+        { id: "water", name: "water", qty: 0.75, unit: "cup", metric: { qty: 180, unit: "ml" }, aisle: "Pantry" },
+        { id: "lemon", name: "fresh lemon juice", qty: 1, unit: "tsp", metric: { qty: 5, unit: "ml" }, aisle: "Produce" },
+        { id: "ofw", name: "orange blossom water", qty: 1, unit: "tbsp", metric: { qty: 15, unit: "ml" }, aisle: "Pantry" },
+        { id: "rose", name: "rose water", qty: 1, unit: "tsp", metric: { qty: 5, unit: "ml" }, aisle: "Pantry", optional: true },
+      ],
+    },
+    {
+      title: "For the pastry",
+      items: [
+        { id: "butter", name: "unsalted butter", qty: 1.25, unit: "cup", metric: { qty: 280, unit: "g" }, note: "to clarify (or use ghee)", aisle: "Dairy" },
+        { id: "phyllo", name: "phyllo dough, thawed", qty: 1, unit: "lb", metric: { qty: 450, unit: "g" }, note: "9×14-inch sheets", aisle: "Frozen" },
+      ],
+    },
+    {
+      title: "For the filling",
+      items: [
+        { id: "nuts", name: "raw unsalted walnuts or pistachios", qty: 3, unit: "cup", metric: { qty: 360, unit: "g" }, aisle: "Pantry" },
+        { id: "n-sugar", name: "granulated sugar", qty: 0.25, unit: "cup", metric: { qty: 50, unit: "g" }, aisle: "Pantry" },
+        { id: "n-ofw", name: "orange blossom water", qty: 1, unit: "tbsp", metric: { qty: 15, unit: "ml" }, aisle: "Pantry" },
+        { id: "pistachio", name: "ground pistachios for garnish", qty: 2, unit: "tbsp", metric: { qty: 15, unit: "g" }, aisle: "Pantry", optional: true },
+      ],
+    },
+  ],
+  steps: [
+    {
+      title: "Make the syrup first and let it cool",
+      minutes: 15,
+      timer: { label: "Simmer syrup", seconds: 10 * 60 },
+      uses: [{ id: "sugar" }, { id: "water" }, { id: "lemon" }, { id: "ofw" }, { id: "rose" }],
+      body: [
+        "Put the sugar and water in a small saucepan over medium heat and stir until the sugar dissolves. Stop stirring once it boils.",
+        "Add the lemon juice, lower the heat and simmer for 10 minutes. Turn off the heat, stir in the orange blossom water (and rose water if using) and let it cool completely.",
+      ],
+      cue: "A clear syrup that is slightly thickened, like warm maple syrup. A drop between two fingers feels a little sticky but does not form threads.",
+      tip: "The lemon juice stops the syrup from crystallising into sugar crystals.",
+      mistake: "Boiling the syrup too long. It turns into candy and makes the baklava rock-hard.",
+    },
+    {
+      title: "Clarify the butter",
+      minutes: 10,
+      uses: [{ id: "butter" }],
+      body: [
+        "Melt the butter in a small saucepan over low heat and let it bubble gently for 5 minutes. White foam rises to the top and milky solids sink.",
+        "Skim off the foam with a spoon, then carefully pour the clear golden butter into a bowl, leaving the white milky layer at the bottom of the pan.",
+      ],
+      cue: "Clear, golden liquid butter with no white specks floating in it.",
+      tip: "Clarified butter (or ghee) makes crisper, more golden layers and will not burn in the oven.",
+      mistake: "Using plain melted butter. The milk solids make the phyllo soggy and can burn.",
+    },
+    {
+      title: "Chop the nut filling",
+      minutes: 5,
+      uses: [{ id: "nuts" }, { id: "n-sugar" }, { id: "n-ofw" }],
+      body: ["Pulse the nuts in the food processor in short bursts until finely chopped. Tip them into a bowl and stir in the sugar and orange blossom water."],
+      cue: "Even pieces about the size of a grain of rice, with very little powder.",
+      tip: "Pulse in short bursts and check often. It turns into nut butter quickly.",
+      mistake: "Chopping the nuts into a fine powder. It makes a dense, pasty filling.",
+    },
+    {
+      title: "Prepare the phyllo so it does not dry out",
+      minutes: 5,
+      uses: [{ id: "phyllo" }],
+      body: [
+        "Heat the oven to 350°F (175°C). Brush a 9×13-inch (23×33 cm) metal pan with butter.",
+        "Unroll the phyllo onto a dry board. If it is bigger than your pan, trim the stack to size with a sharp knife. Cover it with a sheet of plastic wrap, then a slightly damp (not wet) kitchen towel.",
+      ],
+      cue: "Soft, flexible sheets that you can lift without them cracking.",
+      tip: "Thaw phyllo overnight in the fridge, never on the counter or in the microwave. Then leave the box at room temperature for an hour before opening.",
+      mistake: "Leaving the phyllo uncovered. It dries and crumbles within minutes.",
+    },
+    {
+      title: "Layer the bottom half",
+      minutes: 10,
+      uses: [{ id: "butter", part: 0.4 }],
+      body: [
+        "Lay one sheet of phyllo in the pan and brush it lightly all over with butter. Repeat until you have about half of the sheets stacked (usually 10–12 sheets), keeping the rest covered.",
+        "Spread the nut filling evenly over the top and press it down gently.",
+      ],
+      cue: "A neat stack of golden, lightly glossy sheets with an even layer of nuts on top.",
+      tip: "Torn sheets are fine in the middle layers — just patch them. Save the best sheets for the very top.",
+      mistake: "Drenching each sheet in butter. A light brushing is enough; too much makes heavy baklava.",
+    },
+    {
+      title: "Layer the top half",
+      minutes: 10,
+      uses: [{ id: "butter", part: 0.35 }],
+      body: ["Layer the remaining phyllo sheets over the nuts, brushing each sheet with butter. Brush the final top sheet generously."],
+      cue: "A smooth, flat, glossy top with no wrinkles.",
+      tip: "Smooth each sheet gently from the centre out to push out air bubbles.",
+      mistake: "Running out of butter halfway. Keep an eye on how much is left as you go.",
+    },
+    {
+      title: "Cut before baking",
+      minutes: 8,
+      uses: [{ id: "butter", part: 0.25 }],
+      body: [
+        "With a very sharp knife, cut all the way to the bottom of the pan in straight lines lengthwise about 1½ inches (4 cm) apart, then cut diagonally to make diamonds. Press down gently with your other hand so the layers do not slide.",
+        "Pour the remaining butter over the top so it runs into all the cuts.",
+      ],
+      cue: "Clean diamond shapes cut right through to the pan.",
+      tip: "Baked phyllo shatters when you cut it. Cutting first is the only way to get neat pieces.",
+      mistake: "Only cutting partway through. The bottom layers will not soak up the syrup.",
+    },
+    {
+      title: "Bake until deep golden",
+      minutes: 55,
+      timer: { label: "Bake baklava", seconds: 50 * 60 },
+      body: ["Bake on the middle rack for 45–55 minutes."],
+      cue: "Deep golden brown all over, crisp and crackly, with the sides of the pan sizzling. The kitchen smells of toasted nuts and butter.",
+      tip: "Look at the colour, not the clock. Pale baklava turns soggy once the syrup goes on.",
+      mistake: "Taking it out when lightly golden. The layers underneath are still raw.",
+    },
+    {
+      title: "Pour cool syrup over hot baklava, then wait",
+      minutes: 3,
+      timer: { label: "Let syrup soak in", seconds: 4 * 3600 },
+      uses: [{ id: "pistachio" }],
+      body: [
+        "As soon as the pan comes out of the oven, slowly pour the cooled syrup evenly over the hot baklava, especially into the cuts. You will hear it crackle.",
+        "Sprinkle with ground pistachios if using. Leave it uncovered at room temperature for at least 4 hours, or overnight, so the syrup soaks in. Then cut along the lines again to serve.",
+      ],
+      cue: "A loud sizzle as the syrup hits, then glossy, crisp diamonds with no pools of syrup left after a few hours.",
+      tip: "Hot pastry and cool syrup is the golden rule. It keeps the top crisp while the inside soaks up the syrup.",
+      mistake: "Covering it while it is still warm. Trapped steam makes the top layers soggy.",
+    },
+  ],
+  video: { youtubeId: "1628kY4n-n4", creator: "Plant Based Folk", title: "Baklawa (Lebanese Baklava)" },
+  videoSummary:
+    "We begin with the syrup so it has time to cool: sugar and water simmered with lemon, then perfumed with orange blossom water. We clarify butter for crisp layers and pulse nuts with a little sugar and orange blossom water. Keeping the phyllo covered so it does not dry out, we layer and butter half the sheets, spread the nuts, and layer the rest on top. We cut it into diamonds before baking, bake until deep golden, then pour the cool syrup over the hot pastry and let it rest for hours to soak in.",
+  notes: {
+    substitutions: [
+      "Ghee from the store replaces clarified butter one-for-one (1 cup).",
+      "Use a mix of walnuts and pistachios, or cashews, which are popular in Lebanese sweet shops.",
+      "No orange blossom water? Use 1 tsp vanilla extract and a strip of lemon zest in the syrup. It will taste less traditional.",
+    ],
+    storage: "Store at room temperature, loosely covered with foil or a clean towel, for up to 1 week. Do not refrigerate — it hardens and loses its crispness. Freezes for 3 months.",
+    makeAhead: "Baklava is best made a day ahead so the syrup has fully soaked in.",
+    serving: "Serve at room temperature with Arabic coffee or mint tea.",
+    pairsWith: ["zaatar-manakish", "labneh"],
+  },
+};

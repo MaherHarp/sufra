@@ -1,0 +1,120 @@
+import type { Recipe } from "../types";
+import { u } from "../images";
+
+export const muhammara: Recipe = {
+  slug: "muhammara",
+  title: "Muhammara (Roasted Red Pepper & Walnut Dip)",
+  arabic: "محمرة",
+  category: "mezze",
+  summary: "Sweet roasted peppers, toasted walnuts and tart pomegranate molasses in a rich, gently spicy dip.",
+  description:
+    "Muhammara is sweet, smoky, tangy and nutty all at once, with a slow warmth from Aleppo pepper. It is made in the food processor in minutes once the peppers are roasted, and it is the dip people will ask you for.",
+  origin:
+    "Muhammara (from the Arabic for 'reddened') comes from Aleppo in Syria, famous for its mild, fruity red peppers, and it is now a beloved part of the Lebanese mezze table. Pomegranate molasses gives it the sweet-and-sour backbone typical of Aleppine cooking.",
+  image: { src: u("photo-1777891257688-cdf5c386bbb2"), alt: "An assortment of dips with walnuts" },
+  prepMinutes: 15,
+  cookMinutes: 30,
+  waitMinutes: 30,
+  waitLabel: "Resting so flavours meld",
+  servings: 6,
+  difficulty: "Easy",
+  calories: 240,
+  dietary: ["Vegetarian", "Vegan", "Dairy-Free", "Halal"],
+  rating: 4.8,
+  popularity: 10,
+  equipment: ["baking-sheet", "large-bowl", "food-processor", "measuring", "tongs"],
+  ingredients: [
+    {
+      title: "For the dip",
+      items: [
+        { id: "peppers", name: "red bell peppers", qty: 3, unit: "", metric: { qty: 570, unit: "g" }, note: "large", aisle: "Produce" },
+        { id: "walnuts", name: "walnut halves", qty: 1, unit: "cup", metric: { qty: 100, unit: "g" }, aisle: "Pantry" },
+        { id: "crumbs", name: "plain dry breadcrumbs", qty: 0.5, unit: "cup", metric: { qty: 30, unit: "g" }, aisle: "Pantry" },
+        { id: "garlic", name: "garlic", qty: 1, unit: "clove", metric: { qty: 5, unit: "g" }, aisle: "Produce" },
+        { id: "molasses", name: "pomegranate molasses", qty: 2, unit: "tbsp", metric: { qty: 40, unit: "g" }, aisle: "Pantry" },
+        { id: "lemon", name: "fresh lemon juice", qty: 1, unit: "tbsp", metric: { qty: 15, unit: "ml" }, aisle: "Produce" },
+        { id: "aleppo", name: "Aleppo pepper", qty: 1.5, unit: "tsp", metric: { qty: 3, unit: "g" }, aisle: "Spices" },
+        { id: "cumin", name: "ground cumin", qty: 1, unit: "tsp", metric: { qty: 2, unit: "g" }, aisle: "Spices" },
+        { id: "salt", name: "fine sea salt", qty: 0.75, unit: "tsp", metric: { qty: 4, unit: "g" }, aisle: "Spices" },
+        { id: "oil", name: "extra-virgin olive oil", qty: 3, unit: "tbsp", metric: { qty: 45, unit: "ml" }, note: "plus more to drizzle", aisle: "Pantry" },
+        { id: "paste", name: "red pepper paste", qty: 1, unit: "tbsp", metric: { qty: 15, unit: "g" }, aisle: "Pantry", optional: true },
+      ],
+    },
+  ],
+  steps: [
+    {
+      title: "Roast the peppers until blackened",
+      minutes: 25,
+      timer: { label: "Roast peppers", seconds: 20 * 60 },
+      uses: [{ id: "peppers" }],
+      body: [
+        "Move an oven rack 4–5 inches (10–12 cm) below the broiler and turn the broiler to high. Put the whole peppers on a foil-lined baking sheet.",
+        "Broil for 15–20 minutes, turning with tongs every 5 minutes, until blackened in big patches all over. (Or char them directly over a gas flame.)",
+      ],
+      cue: "The skins are blistered and black in large patches and the peppers have slumped and softened.",
+      tip: "Shortcut: a 12-oz (340 g) jar of roasted red peppers, drained and patted dry, works well.",
+      mistake: "Turning too late. One side turns to ash while the other is still raw.",
+      image: { src: u("photo-1641738119374-0a0ed1fb1764"), alt: "Red peppers on a wooden table" },
+    },
+    {
+      title: "Steam and peel the peppers",
+      minutes: 8,
+      timer: { label: "Steam peppers", seconds: 10 * 60 },
+      body: [
+        "Put the hot peppers in a bowl, cover with a plate and leave for 10 minutes.",
+        "Pull off the skins, then remove the stems and seeds. Do not rinse them under water — it washes away the smoky flavour. Pat dry with a paper towel.",
+      ],
+      cue: "Silky, deep-red pepper flesh with only a few flecks of black.",
+      tip: "Peel over the bowl to catch the juices, but do not add them to the dip — they make it runny.",
+      mistake: "Leaving the peppers wet. Watery peppers give a thin, loose dip.",
+    },
+    {
+      title: "Toast the walnuts",
+      minutes: 8,
+      timer: { label: "Toast walnuts", seconds: 7 * 60 },
+      uses: [{ id: "walnuts" }],
+      body: ["Spread the walnuts on a baking sheet and toast at 350°F (175°C) for 6–8 minutes, or in a dry skillet over medium-low heat for 5 minutes, stirring often. Let them cool for a few minutes."],
+      cue: "A shade darker and smelling rich and toasty. Snap one: the inside is light gold.",
+      tip: "Save a few toasted walnut halves for the top.",
+      mistake: "Skipping the toasting. Raw walnuts taste flat and slightly bitter here.",
+    },
+    {
+      title: "Process to a textured paste",
+      minutes: 4,
+      uses: [{ id: "walnuts" }, { id: "garlic" }, { id: "peppers" }, { id: "crumbs" }, { id: "molasses" }, { id: "lemon" }, { id: "aleppo" }, { id: "cumin" }, { id: "salt" }, { id: "paste" }, { id: "oil" }],
+      body: [
+        "Pulse the walnuts and garlic in the food processor about 8 times, until coarsely chopped.",
+        "Add the peppers, breadcrumbs, pomegranate molasses, lemon juice, Aleppo pepper, cumin, salt and pepper paste if using. Pulse 10–15 times, then stream in the olive oil while pulsing.",
+      ],
+      cue: "A thick, spreadable, brick-red paste with tiny bits of walnut still visible — like a rustic pesto, not a smooth purée.",
+      tip: "If it is too loose, pulse in another spoonful of breadcrumbs; too thick, a spoonful of olive oil.",
+      mistake: "Blending it completely smooth. Muhammara should have a little texture.",
+    },
+    {
+      title: "Rest, taste and serve",
+      minutes: 3,
+      timer: { label: "Rest muhammara", seconds: 30 * 60 },
+      body: [
+        "Let it rest at least 30 minutes so the breadcrumbs absorb the juices and the flavours come together.",
+        "Taste: it should be sweet, sour and gently spicy. Adjust with more molasses, lemon or salt. Spread on a plate, drizzle with olive oil and top with walnut halves.",
+      ],
+      cue: "Deep red and glossy, sweet-tart with a warm finish that builds slowly.",
+      tip: "Muhammara is even better the next day.",
+      mistake: "Serving it cold straight from the fridge. Let it come to room temperature first.",
+    },
+  ],
+  video: { youtubeId: "y7eDgW5bnis", creator: "Chili Pepper Madness", title: "Muhammara (Roasted Red Pepper & Walnut Dip)" },
+  videoSummary:
+    "We roast whole red peppers under the broiler until blackened, steam them in a covered bowl and peel off the skins. While they steam we toast walnuts until fragrant. In the food processor we pulse walnuts with garlic, then add the peppers, breadcrumbs, pomegranate molasses, lemon, Aleppo pepper and cumin, streaming in olive oil to make a textured, spreadable dip. A thirty-minute rest lets everything come together before we finish it with olive oil and walnuts.",
+  notes: {
+    substitutions: [
+      "No Aleppo pepper? Use 1 tsp sweet paprika plus ¼–½ tsp red pepper flakes.",
+      "Gluten-free: swap the breadcrumbs for 2 tbsp almond flour or gluten-free crumbs.",
+      "Nut-free: replace walnuts with toasted sunflower seeds.",
+    ],
+    storage: "Keeps 1 week in the fridge with a thin layer of olive oil on top. Freezes well for 3 months.",
+    makeAhead: "Make it a day ahead — the flavour improves overnight.",
+    serving: "Serve with pita, as a spread in sandwiches, or alongside grilled kafta or chicken.",
+    pairsWith: ["baba-ghanoush", "classic-creamy-hummus", "kafta", "labneh"],
+  },
+};
